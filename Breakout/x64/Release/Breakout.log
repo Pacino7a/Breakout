@@ -1,0 +1,31 @@
+﻿  camera.cpp
+  shader.cpp
+  gameBall.cpp
+  gameLevel.cpp
+  gameObj.cpp
+  main.cpp
+  particle.cpp
+  postProcess.cpp
+  powerUp.cpp
+  resourceManager.cpp
+D:\Cpp\vistual_studio_save\Breakout\Breakout\resourceManager.cpp(60,31): warning C4101: “e”: 未引用的局部变量
+  spriteRender.cpp
+  textRender.cpp
+D:\Cpp\vistual_studio_save\Breakout\Breakout\textRender.cpp(60,24): warning C4838: 从“FT_Pos”转换到“unsigned int”需要收缩转换
+  texture.cpp
+  utils.cpp
+D:\Cpp\vistual_studio_save\Breakout\Breakout\utils.cpp(333,45): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+D:\Cpp\vistual_studio_save\Breakout\Breakout\utils.cpp(343,75): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+D:\Cpp\vistual_studio_save\Breakout\Breakout\utils.cpp(344,86): warning C4244: “参数”: 从“unsigned int”转换到“float”，可能丢失数据
+D:\Cpp\vistual_studio_save\Breakout\Breakout\utils.cpp(349,72): warning C4244: “参数”: 从“unsigned int”转换到“float”，可能丢失数据
+D:\Cpp\vistual_studio_save\Breakout\Breakout\utils.cpp(355,90): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+D:\Cpp\vistual_studio_save\Breakout\Breakout\utils.cpp(356,86): warning C4244: “参数”: 从“unsigned int”转换到“float”，可能丢失数据
+D:\Cpp\vistual_studio_save\Breakout\Breakout\utils.cpp(361,91): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+D:\Cpp\vistual_studio_save\Breakout\Breakout\utils.cpp(362,89): warning C4244: “参数”: 从“unsigned int”转换到“float”，可能丢失数据
+  glad.c
+LINK : warning LNK4098: 默认库“MSVCRTD”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+  正在生成代码
+  Previous IPDB not found, fall back to full compilation.
+  All 1474 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  Breakout.vcxproj -> D:\Cpp\vistual_studio_save\Breakout\x64\Release\Breakout.exe

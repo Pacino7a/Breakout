@@ -1,0 +1,10 @@
+﻿  utils.cpp
+D:\Cpp\vistual_studio_save\Breakout\Breakout\utils.cpp(333,45): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+D:\Cpp\vistual_studio_save\Breakout\Breakout\utils.cpp(343,75): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+D:\Cpp\vistual_studio_save\Breakout\Breakout\utils.cpp(344,86): warning C4244: “参数”: 从“unsigned int”转换到“float”，可能丢失数据
+D:\Cpp\vistual_studio_save\Breakout\Breakout\utils.cpp(349,72): warning C4244: “参数”: 从“unsigned int”转换到“float”，可能丢失数据
+D:\Cpp\vistual_studio_save\Breakout\Breakout\utils.cpp(355,90): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+D:\Cpp\vistual_studio_save\Breakout\Breakout\utils.cpp(356,86): warning C4244: “参数”: 从“unsigned int”转换到“float”，可能丢失数据
+D:\Cpp\vistual_studio_save\Breakout\Breakout\utils.cpp(361,91): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+D:\Cpp\vistual_studio_save\Breakout\Breakout\utils.cpp(362,89): warning C4244: “参数”: 从“unsigned int”转换到“float”，可能丢失数据
+  Breakout.vcxproj -> D:\Cpp\vistual_studio_save\Breakout\x64\Debug\Breakout.exe
