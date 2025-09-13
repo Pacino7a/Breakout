@@ -431,7 +431,6 @@ void Game::processInput(float deltatime)
 		if (m_keys[GLFW_KEY_SPACE])
 		{
 			m_keyPressed[GLFW_KEY_SPACE] = true;
-			m_powerUps.clear();
 			m_state = GameUtils::GAME_ACTIVE;
 		}
 	}
@@ -500,6 +499,7 @@ void Game::update(float deltatime)
 
 	if (m_state == GameUtils::GAME_ACTIVE && m_levels[m_level].isCompleted())
 	{
+		m_powerUps.clear();
 		resetPlayer();
 		if (m_level == m_levels.size() - 1)
 		{
