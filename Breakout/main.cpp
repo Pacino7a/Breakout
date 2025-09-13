@@ -1,6 +1,6 @@
 #include "utils.h"
-#include "texture.h"
-#include "resourceManager.h"
+//#include "texture.h"
+//#include "resourceManager.h"
 #include <learnGL/config.h>
 
 constexpr int MAJOR_VERSION{ 3 };
@@ -24,7 +24,7 @@ auto g_keyMenuPressd{ false };
 auto MULTISAMPLER{ 8 };
 #endif // __MULTISAMPLE__
 
-void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode)
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode) // automatically triggered
 {
 	if (key >= 0 && key < 1024)
 	{
@@ -94,51 +94,53 @@ int main()
 			glfwSetWindowTitle(window, strStream.str().c_str());
 		}
 		
-		if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-		{
-			if(glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS && glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-			{
-				game.m_keys[GLFW_KEY_A] = false;
-				game.m_keys[GLFW_KEY_D] = false;
-			}
-			else if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-			{
-				game.m_keys[GLFW_KEY_A] = true;
-				game.m_keys[GLFW_KEY_D] = false;
-			}
-			else
-			{
-				game.m_keys[GLFW_KEY_A] = false;
-				game.m_keys[GLFW_KEY_D] = true;
-			}
-		}
-		else
-		{
-			game.m_keys[GLFW_KEY_A] = false;
-			game.m_keys[GLFW_KEY_D] = false;
-		}
+		/* Because we use keyCallBack, so these judges have no meaning for keeping use*/
 
-		if (!g_keyPressd && glfwGetKey(window, GLFW_KEY_SPACE))
-		{
-			game.m_keys[GLFW_KEY_SPACE] = true;
-			g_keyPressd = true;
-		}
-		else
-		{
-			game.m_keys[GLFW_KEY_SPACE] = false;
-			g_keyPressd = false;
-		}
+		//if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+		//{
+		//	if(glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS && glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+		//	{
+		//		game.m_keys[GLFW_KEY_A] = false;
+		//		game.m_keys[GLFW_KEY_D] = false;
+		//	}
+		//	else if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+		//	{
+		//		game.m_keys[GLFW_KEY_A] = true;
+		//		game.m_keys[GLFW_KEY_D] = false;
+		//	}
+		//	else
+		//	{
+		//		game.m_keys[GLFW_KEY_A] = false;
+		//		game.m_keys[GLFW_KEY_D] = true;
+		//	}
+		//}
+		//else
+		//{
+		//	game.m_keys[GLFW_KEY_A] = false;
+		//	game.m_keys[GLFW_KEY_D] = false;
+		//}
 
-		if (!g_keyResetPressd && glfwGetKey(window, GLFW_KEY_R))
-		{
-			game.m_keys[GLFW_KEY_R] = true;
-			g_keyResetPressd = true;
-		}
-		else
-		{
-			game.m_keys[GLFW_KEY_R] = false;
-			g_keyResetPressd = false;
-		}
+		//if (!g_keyPressd && glfwGetKey(window, GLFW_KEY_SPACE))
+		//{
+		//	game.m_keys[GLFW_KEY_SPACE] = true;
+		//	g_keyPressd = true;
+		//}
+		//else
+		//{
+		//	game.m_keys[GLFW_KEY_SPACE] = false;
+		//	g_keyPressd = false;
+		//}
+
+		//if (!g_keyResetPressd && glfwGetKey(window, GLFW_KEY_R))
+		//{
+		//	game.m_keys[GLFW_KEY_R] = true;
+		//	g_keyResetPressd = true;
+		//}
+		//else
+		//{
+		//	game.m_keys[GLFW_KEY_R] = false;
+		//	g_keyResetPressd = false;
+		//}
 
 		if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		{
@@ -152,8 +154,6 @@ int main()
 
 		game.render();
 		game.update(g_deltaTime);
-
-
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();

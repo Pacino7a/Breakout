@@ -123,7 +123,7 @@ Game::Game(unsigned int width, unsigned int height)
 
 Game::~Game()
 {
-	GameUtils::audioEngine->drop(); // only need drop this maually
+	GameUtils::audioEngine->drop(); // only need drop this manually
 }
 
 void Game::init()
@@ -200,7 +200,7 @@ void Game::init()
 	GameUtils::text->load("./fonts/OCRAEXT.TTF", GameUtils::FONT_SIZE);
 }
 
-void Game::makeCollisons()
+void Game::makeCollisons() // detect collision and reverse the direction of the ball (if 
 {
 	for (auto& box : m_levels[m_level].m_bricks)
 	{
@@ -225,7 +225,7 @@ void Game::makeCollisons()
 				}
 				auto direction{ std::get<1>(collision) };
 				auto differenceVec{ std::get<2>(collision) };
-				if(box.isSolid() || !GameUtils::ball->m_passThrough)// Bounce only take place when the box is SOLID or the ball is `inevitable`
+				if(box.isSolid() || !GameUtils::ball->m_passThrough)// Bounce only take place when the box is SOLID or the ball is NOT `inevitable`
 				{
 					if (direction == GameUtils::LEFT || direction == GameUtils::RIGHT)
 					{
@@ -368,6 +368,7 @@ void Game::processInput(float deltatime)
 	if (m_state == GameUtils::GAME_MENU)
 	{
 		inMenu();
+		/* Single Trigger */
 		if (!m_keyPressed[GLFW_KEY_SPACE] && m_keys[GLFW_KEY_SPACE])
 		{
 			m_state = GameUtils::GAME_ACTIVE;
@@ -391,6 +392,7 @@ void Game::processInput(float deltatime)
 	if (m_state == GameUtils::GAME_ACTIVE)
 	{
 		float velocity{ GameUtils::PLAYER_VELOCITY * deltatime };
+		/* Contiunous Trigger */
 		if (m_keys[GLFW_KEY_A])
 		{
 			if (GameUtils::player->m_position.x > 0.0)
@@ -410,14 +412,17 @@ void Game::processInput(float deltatime)
 			}
 		}
 
-		if (GameUtils::ball->m_stucked && m_keys[GLFW_KEY_SPACE]) // break stuck
+		/* Single Trigger */
+		if (!m_keyPressed[GLFW_KEY_SPACE] && GameUtils::ball->m_stucked && m_keys[GLFW_KEY_SPACE]) // break stuck
 		{
 			GameUtils::ball->m_stucked = false;
+			m_keyPressed[GLFW_KEY_SPACE] = true; // we you relase the key, this will become false
 		}
 
-		if (m_keys[GLFW_KEY_R])
+		if (!m_keyPressed[GLFW_KEY_R] && m_keys[GLFW_KEY_R])
 		{
 			resetPlayer();
+			m_keyPressed[GLFW_KEY_R] = true;
 		}
 	}
 
@@ -426,6 +431,7 @@ void Game::processInput(float deltatime)
 		if (m_keys[GLFW_KEY_SPACE])
 		{
 			m_keyPressed[GLFW_KEY_SPACE] = true;
+			m_powerUps.clear();
 			m_state = GameUtils::GAME_ACTIVE;
 		}
 	}
